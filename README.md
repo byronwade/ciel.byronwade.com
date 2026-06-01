@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ciel
 
-## Getting Started
+Frontend-first deployment platform — predictable cost, understandable security, legible deployment states.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack)
+- **TypeScript**
+- **Tailwind CSS v4**
+- **shadcn/ui** (base-ui)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  (marketing)/     Public marketing site
+  auth/            Authentication & recovery flows
+  app/
+    (workspace)/   Workspace shell (overview, billing, team, …)
+    projects/[project]/  Project shell (deployments, domains, spend, …)
+components/
+  ciel/            Domain components (StatusPill, BudgetMeter, …)
+  shells/          Layout shells
+  dialogs/         Route-backed dialog host (?dialog= / ?panel=)
+lib/
+  mock/            Typed mock data fixtures
+  data/            Data access layer (swap mock → API here)
+  routes.ts        Navigation config
+  dialog-registry.ts
+```
 
-## Learn More
+## Phase 1 scope
 
-To learn more about Next.js, take a look at the following resources:
+This is a **frontend prototype** with mock data and stubbed auth. No real Git OAuth, deploy pipeline, or backend yet.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key flows to demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Signup → deploy**: `/auth/signup` → `/auth/verify-email` → `/app/overview?welcome=1` → `/app/projects/new/source`
+2. **Budget control**: `/app/usage`, `/app/projects/[id]/spend?dialog=set-budget`
+3. **Failed build recovery**: `/app/projects/proj_dashboard/deployments/dep_2`
+4. **Domain setup**: `/app/projects/proj_docs/domains?dialog=add-domain`
+5. **Preview review**: `/app/projects/proj_marketing/previews/prev_1?dialog=share-preview`
+6. **Import hub**: `/app/import` → Vercel / Netlify / Render migration flows
+7. **Design system**: `/app/design-system` — component reference gallery
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Route-backed overlays: `?dialog=` (modal/sheet) and `?panel=` (side panel)
+- Dark mode via system preference or header toggle
+- Breadcrumbs + workspace switcher in app header
+- First-run workspace setup on `/app/overview?welcome=1`
+- Trust banner on marketing and app layouts when incidents are active
+- Keyboard shortcuts: `⌘K` palette, `G` then `P`/`O`/`D`, `?` for help
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Build
+
+```bash
+npm run build
+npm run verify:routes
+```
