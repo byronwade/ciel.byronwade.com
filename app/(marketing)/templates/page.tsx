@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -7,6 +8,11 @@ const templates = [
   { name: "React Dashboard", framework: "Vite + React", desc: "Admin dashboard SPA" },
   { name: "Static Portfolio", framework: "HTML/CSS", desc: "Personal portfolio" },
 ];
+
+export const metadata: Metadata = {
+  title: "Templates",
+  description: "Start from a production-ready template and deploy in minutes.",
+};
 
 export default function TemplatesPage() {
   return (

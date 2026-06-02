@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Self-Host",
+  description: "Run Ciel on your own infrastructure with configuration parity.",
+};
 
 export default function SelfHostPage() {
   return (

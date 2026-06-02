@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { PageHeader } from "@/components/ciel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatusPill } from "@/components/ciel";
+
+export const metadata: Metadata = {
+  title: "Trust Center",
+  description: "Compliance posture, subprocessors, and security practices for Ciel.",
+};
 
 export default function TrustCenterPage() {
   return (

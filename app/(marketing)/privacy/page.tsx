@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { MarketingPage, LegalSection } from "@/components/marketing/marketing-page";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "How Ciel collects, uses, and protects your data.",
+};
 
 export default function PrivacyPage() {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,13 @@ import { getCompetitor } from "@/lib/mock";
 
 export function generateStaticParams() {
   return compareSlugs.map((slug) => ({ competitor: slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ competitor: string }> }): Promise<Metadata> {
+  const { competitor: slug } = await params;
+  const competitor = await getCompetitor(slug);
+  if (!competitor) return { title: "Compare" };
+  return { title: `Ciel vs ${competitor.name}`, description: competitor.tagline };
 }
 
 export default async function CompareDetailPage({

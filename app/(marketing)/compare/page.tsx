@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { compareSlugs } from "@/lib/routes";
 import { getCompetitors } from "@/lib/mock";
+
+export const metadata: Metadata = {
+  title: "Compare",
+  description: "See how Ciel compares to other deployment platforms on cost, security, and clarity.",
+};
 
 export default async function ComparePage() {
   const competitors = await getCompetitors();

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { marketingNav } from "@/lib/routes";
+import { MarketingMobileNav } from "@/components/shells/marketing-mobile-nav";
 
 export function MarketingHeader() {
   return (
@@ -23,12 +24,13 @@ export function MarketingHeader() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" asChild>
+          <Button variant="ghost" size="sm" className="hidden md:inline-flex" asChild>
             <Link href="/auth/login">Login</Link>
           </Button>
           <Button size="sm" asChild>
             <Link href="/auth/signup">Start Deploying</Link>
           </Button>
+          <MarketingMobileNav />
         </div>
       </div>
     </header>

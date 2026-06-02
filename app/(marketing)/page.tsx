@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Shield, DollarSign, Eye } from "lucide-react";
+
+export const metadata: Metadata = {
+  description:
+    "Ciel is a frontend-first deployment platform with predictable costs, understandable security, and legible deployment states.",
+};
 
 export default function LandingPage() {
   return (

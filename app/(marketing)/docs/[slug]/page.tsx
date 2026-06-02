@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { DocsLayout } from "@/components/marketing/docs-layout";
 
 const docPages: Record<string, { title: string; content: string[] }> = {
@@ -80,6 +81,13 @@ const docPages: Record<string, { title: string; content: string[] }> = {
     ],
   },
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const doc = docPages[slug];
+  if (!doc) return { title: "Docs" };
+  return { title: doc.title, description: `${doc.title} — Ciel documentation.` };
+}
 
 export function generateStaticParams() {
   return Object.keys(docPages).map((slug) => ({ slug }));

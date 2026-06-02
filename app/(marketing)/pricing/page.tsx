@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -25,6 +26,11 @@ const plans = [
     features: ["Everything in Pro", "500 GB included", "Team roles", "Activity timeline", "SSO ready"],
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Pricing",
+  description: "Transparent, predictable pricing with workspace, project, and environment budgets.",
+};
 
 export default function PricingPage() {
   return (

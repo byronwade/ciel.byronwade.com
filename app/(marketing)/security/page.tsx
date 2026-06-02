@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatusPill } from "@/components/ciel";
+
+export const metadata: Metadata = {
+  title: "Security",
+  description: "Passkeys, masked secrets, step-up reauth, and a full activity timeline.",
+};
 
 export default function SecurityPage() {
   return (

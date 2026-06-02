@@ -17,11 +17,11 @@ export function WorkspaceHeaderActions() {
   return (
     <div className="flex items-center gap-2">
       <ThemeToggle />
-      <Button variant="ghost" size="icon-sm" render={<Link href="/app/notifications" />}>
+      <Button variant="ghost" size="icon-sm" aria-label="Notifications" render={<Link href="/app/notifications" />}>
         <Bell />
       </Button>
       <DropdownMenu>
-        <DropdownMenuTrigger render={<Button variant="ghost" size="icon-sm" className="rounded-full" />}>
+        <DropdownMenuTrigger render={<Button variant="ghost" size="icon-sm" aria-label="Account menu" className="rounded-full" />}>
           <Avatar className="size-7">
             <AvatarFallback className="text-xs">AC</AvatarFallback>
           </Avatar>

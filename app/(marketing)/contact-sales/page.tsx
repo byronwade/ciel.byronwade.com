@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import { MarketingPage } from "@/components/marketing/marketing-page";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+export const metadata: Metadata = {
+  title: "Contact Sales",
+  description: "Talk to sales about enterprise plans, SSO, and volume pricing.",
+};
 
 export default function ContactSalesPage() {
   return (

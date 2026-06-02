@@ -134,10 +134,14 @@ export function ProjectShell({ children }: { children: React.ReactNode }) {
               <DropdownMenuItem render={<Link href={`/app/projects/${projectId}/environment/staging`} />}>Staging</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <StatusPill status={p.status} label={p.branch} />
-          <AppBreadcrumb />
+          <div className="hidden sm:flex">
+            <StatusPill status={p.status} label={p.branch} />
+          </div>
+          <div className="hidden min-w-0 items-center lg:flex">
+            <AppBreadcrumb />
+          </div>
           <div className="flex-1" />
-          <Button size="sm" variant="outline" render={<Link href={`/app/projects/${projectId}/previews?dialog=share-preview`} />}>
+          <Button size="sm" variant="outline" className="hidden sm:inline-flex" render={<Link href={`/app/projects/${projectId}/previews?dialog=share-preview`} />}>
             Share Preview
           </Button>
           <Button size="sm" render={<Link href={`${pathname}?dialog=deploy-now`} />}>
@@ -145,7 +149,7 @@ export function ProjectShell({ children }: { children: React.ReactNode }) {
           </Button>
           <WorkspaceHeaderActions />
         </header>
-        <main className="flex-1 p-4 md:p-6">{children}</main>
+        <main id="main-content" tabIndex={-1} className="flex-1 p-4 outline-none md:p-6">{children}</main>
       </SidebarInset>
       <CommandPalette projectId={projectId} />
     </SidebarProvider>

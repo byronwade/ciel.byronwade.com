@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { MarketingPage, RoadmapItem } from "@/components/marketing/marketing-page";
+
+export const metadata: Metadata = {
+  title: "Roadmap",
+  description: "What we're building next on the Ciel platform.",
+};
 
 export default function RoadmapPage() {
   return (

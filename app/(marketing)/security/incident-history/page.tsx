@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getIncidentHistory } from "@/lib/mock";
 import { StatusPill } from "@/components/ciel";
+
+export const metadata: Metadata = {
+  title: "Incident History",
+  description: "A transparent record of past incidents and their resolutions.",
+};
 
 export default async function SecurityIncidentHistoryPage() {
   const history = await getIncidentHistory();

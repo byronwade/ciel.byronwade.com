@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { MarketingPage, CustomerCard } from "@/components/marketing/marketing-page";
+
+export const metadata: Metadata = {
+  title: "Customers",
+  description: "Teams who switched to Ciel for predictable costs and clearer deployment states.",
+};
 
 export default function CustomersPage() {
   return (

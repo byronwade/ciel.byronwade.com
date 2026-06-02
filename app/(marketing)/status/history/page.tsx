@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatusPill } from "@/components/ciel";
 import { getIncidentHistory } from "@/lib/mock";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Status History",
+  description: "Historical uptime and past status updates for Ciel.",
+};
 
 export default async function StatusHistoryPage() {
   const history = await getIncidentHistory();

@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { MarketingPage, LegalSection } from "@/components/marketing/marketing-page";
+
+export const metadata: Metadata = {
+  title: "Fair Use Policy",
+  description: "Acceptable use guidelines for the Ciel platform.",
+};
 
 export default function FairUsePage() {
   return (

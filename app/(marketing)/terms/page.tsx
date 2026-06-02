@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { MarketingPage, LegalSection } from "@/components/marketing/marketing-page";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "The terms governing your use of Ciel.",
+};
 
 export default function TermsPage() {
   return (

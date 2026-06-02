@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import { StatusPill } from "@/components/ciel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getActiveIncidents, getIncidentHistory } from "@/lib/mock";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Status",
+  description: "Live operational status of Ciel services and the edge network.",
+};
 
 export default async function StatusPage() {
   const incidents = await getActiveIncidents();

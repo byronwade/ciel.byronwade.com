@@ -97,15 +97,20 @@ export function WorkspaceShell({ children }: { children: React.ReactNode }) {
         <header className="flex h-14 items-center gap-3 border-b px-4">
           <SidebarTrigger />
           <WorkspaceSwitcher />
-          <AppBreadcrumb />
-          <CommandPaletteTrigger />
+          <div className="hidden min-w-0 items-center lg:flex">
+            <AppBreadcrumb />
+          </div>
+          <div className="hidden md:block">
+            <CommandPaletteTrigger />
+          </div>
           <div className="flex-1" />
           <Button size="sm" render={<Link href="/app/projects/new/source" />}>
-            Create Project
+            <span className="hidden sm:inline">Create Project</span>
+            <span className="sm:hidden">Create</span>
           </Button>
           <WorkspaceHeaderActions />
         </header>
-        <main className="flex-1 p-4 md:p-6">{children}</main>
+        <main id="main-content" tabIndex={-1} className="flex-1 p-4 outline-none md:p-6">{children}</main>
       </SidebarInset>
       <CommandPalette />
     </SidebarProvider>

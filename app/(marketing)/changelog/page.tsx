@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { MarketingPage, ChangelogEntry } from "@/components/marketing/marketing-page";
+
+export const metadata: Metadata = {
+  title: "Changelog",
+  description: "What's new in Ciel — features, improvements, and fixes.",
+};
 
 export default function ChangelogPage() {
   return (

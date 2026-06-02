@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { DocsLayout } from "@/components/marketing/docs-layout";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Docs",
+  description: "Guides for deploying, importing, domains, preview protection, and security on Ciel.",
+};
 
 export default function DocsHomePage() {
   return (
