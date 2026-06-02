@@ -57,11 +57,16 @@ function DropdownMenuLabel({
   className,
   inset,
   ...props
-}: MenuPrimitive.GroupLabel.Props & {
+}: React.ComponentProps<"div"> & {
   inset?: boolean
 }) {
+  // A standalone, non-interactive header row. Base UI's `Menu.GroupLabel`
+  // requires a `<Menu.Group>` ancestor; since these labels head the whole menu
+  // rather than a specific group, render a plain element to avoid the
+  // "MenuGroupContext is missing" error.
   return (
-    <MenuPrimitive.GroupLabel
+    <div
+      role="presentation"
       data-slot="dropdown-menu-label"
       data-inset={inset}
       className={cn(

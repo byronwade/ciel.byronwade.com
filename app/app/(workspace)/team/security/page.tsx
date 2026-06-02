@@ -13,7 +13,7 @@ export default async function TeamSecurityPage() {
   return (
     <div>
       <PageHeader title="Team Security" scope="Team" nextAction={{ label: "Review sessions", href: "/app/team/sessions" }} />
-      <Card className="mb-4 border-amber-500/30">
+      <Card className="mb-4 border-warning/40">
         <CardHeader><CardTitle className="text-sm">Posture summary</CardTitle></CardHeader>
         <CardContent className="text-sm flex flex-col gap-1">
           <div>3 of 4 members have MFA enabled</div>

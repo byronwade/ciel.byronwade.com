@@ -48,7 +48,7 @@ export default function ImportHubPage() {
             </CardHeader>
             <CardContent className="mt-auto flex flex-col gap-3">
               {p.review > 0 && (
-                <p className="text-xs text-amber-600">{p.review} setting needs manual review</p>
+                <p className="text-xs text-warning">{p.review} setting needs manual review</p>
               )}
               <LinkButton href={`/app/import/${p.slug}`} variant="outline" size="sm" className="w-fit">
                 Review import

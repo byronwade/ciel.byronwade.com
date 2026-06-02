@@ -16,7 +16,7 @@ export default function EnvironmentPage() {
         state="1 variable changed — redeploy required"
         nextAction={{ label: "Add Secret", href: "?dialog=add-secret" }}
       />
-      <div className="rounded-md border border-amber-500/30 bg-amber-500/5 p-3 text-sm mb-4">
+      <div className="rounded-md border border-warning/40 bg-warning/10 p-3 text-sm mb-4">
         Environment changes do not affect past deployments. <Button variant="link" className="h-auto p-0 text-sm">Redeploy latest</Button>
       </div>
       <div className="flex flex-col gap-2">

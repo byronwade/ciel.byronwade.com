@@ -10,15 +10,15 @@ interface TrustBannerProps {
 
 export function TrustBanner({ title, message, href }: TrustBannerProps) {
   return (
-    <Alert className="rounded-none border-x-0 border-t-0">
+    <Alert className="rounded-none border-x-0 border-t-0 border-warning/30 bg-warning/10 [&>svg]:text-warning">
       <AlertTriangle />
-      <AlertTitle>{title}</AlertTitle>
-      <AlertDescription>
+      <AlertTitle className="text-foreground">{title}</AlertTitle>
+      <AlertDescription className="text-muted-foreground">
         {message}
         {href && (
           <>
             {" "}
-            <Link href={href} className="underline font-medium">
+            <Link href={href} className="font-medium text-foreground underline underline-offset-3">
               View details
             </Link>
           </>

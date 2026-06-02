@@ -18,9 +18,9 @@ const typeColors: Record<CielEvent["type"], string> = {
   build: "bg-orange-500/10 text-orange-700 dark:text-orange-400",
   runtime: "bg-sky-500/10 text-sky-700 dark:text-sky-400",
   dns: "bg-violet-500/10 text-violet-700 dark:text-violet-400",
-  billing: "bg-amber-500/10 text-amber-700 dark:text-amber-400",
-  security: "bg-red-500/10 text-red-700 dark:text-red-400",
-  activity: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
+  billing: "bg-warning/10 text-warning",
+  security: "bg-destructive/10 text-destructive",
+  activity: "bg-brand/10 text-brand",
 };
 
 export function UnifiedEventTable({ events, compact }: UnifiedEventTableProps) {

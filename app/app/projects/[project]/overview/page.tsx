@@ -96,7 +96,7 @@ export default async function ProjectOverviewPage({
             { label: "Create passkey", done: false, href: "/auth/passkey-upgrade" },
           ].map((item) => (
             <Link key={item.label} href={item.href} className="flex items-center gap-2 hover:underline">
-              <span className={item.done ? "text-emerald-600" : "text-muted-foreground"}>{item.done ? "✓" : "○"}</span>
+              <span className={item.done ? "text-brand" : "text-muted-foreground"}>{item.done ? "✓" : "○"}</span>
               {item.label}
             </Link>
           ))}

@@ -29,7 +29,7 @@ export function PreviewAccessCard({ preview }: PreviewAccessCardProps) {
       </div>
       <code className="rounded bg-muted px-2 py-1 text-xs font-mono break-all">{preview.url}</code>
       {preview.protection === "public" && (
-        <Badge variant="outline" className="w-fit text-amber-700 border-amber-500/30">
+        <Badge variant="outline" className="w-fit text-warning border-warning/40">
           Preview is publicly accessible
         </Badge>
       )}

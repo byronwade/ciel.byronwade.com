@@ -29,6 +29,12 @@ export function BudgetMeter({ used, cap, mode, label, compact, className }: Budg
       ? "Approaching cap — review traffic attribution"
       : "Within budget";
 
+  const indicatorClass = isCritical
+    ? "[&_[data-slot=progress-indicator]]:bg-destructive"
+    : isWarning
+      ? "[&_[data-slot=progress-indicator]]:bg-warning"
+      : "[&_[data-slot=progress-indicator]]:bg-brand";
+
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
       {!compact && (
@@ -41,7 +47,7 @@ export function BudgetMeter({ used, cap, mode, label, compact, className }: Budg
       )}
       <Progress
         value={pct}
-        className={cn("h-1.5", isCritical && "[&>div]:bg-red-500", isWarning && "[&>div]:bg-amber-500")}
+        className={cn("[&_[data-slot=progress-track]]:h-1.5", indicatorClass)}
       />
       {!compact && (
         <div className="flex items-center justify-between text-xs text-muted-foreground">

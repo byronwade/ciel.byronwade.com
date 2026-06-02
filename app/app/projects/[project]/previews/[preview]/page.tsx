@@ -28,7 +28,7 @@ export default async function PreviewDetailPage({
       />
 
       {preview.protection === "public" && (
-        <div className="rounded-md border border-amber-500/30 bg-amber-500/5 p-3 text-sm mb-4">
+        <div className="rounded-md border border-warning/40 bg-warning/10 p-3 text-sm mb-4">
           This preview is publicly accessible. <Link href={`/app/projects/${projectId}/protection`} className="underline">Enable protection</Link>
         </div>
       )}

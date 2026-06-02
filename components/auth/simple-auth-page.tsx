@@ -19,7 +19,7 @@ export function SimpleAuthPage({
     <AuthCard title={title} description={description}>
       {children}
       {actionLabel && actionHref && (
-        <Button className="w-full mt-4" asChild>
+        <Button className="mt-4 w-full" asChild>
           <Link href={actionHref}>{actionLabel}</Link>
         </Button>
       )}

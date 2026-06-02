@@ -14,8 +14,8 @@ export function DocsLayout({ children, activeHref }: { children: React.ReactNode
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm py-1.5 px-2 rounded-md hover:bg-muted",
-                  activeHref === item.href && "bg-muted font-medium"
+                  "rounded-md px-2 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
+                  activeHref === item.href && "bg-brand/10 font-medium text-brand hover:bg-brand/10 hover:text-brand"
                 )}
               >
                 {item.label}

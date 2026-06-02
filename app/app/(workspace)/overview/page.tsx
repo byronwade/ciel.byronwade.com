@@ -49,7 +49,7 @@ export default async function WorkspaceOverviewPage() {
 
       <div className="flex flex-col gap-4 mt-4">
         {failedDeploys.map((d) => (
-          <Card key={d.id} className="border-red-500/30">
+          <Card key={d.id} className="border-destructive/30">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-sm">Build failed — {d.branch}</CardTitle>
@@ -66,7 +66,7 @@ export default async function WorkspaceOverviewPage() {
         ))}
 
         {pendingDomains.length > 0 && (
-          <Card className="border-amber-500/30">
+          <Card className="border-warning/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm">{pendingDomains.length} domain(s) awaiting verification</CardTitle>
             </CardHeader>

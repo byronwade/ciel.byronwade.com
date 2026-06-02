@@ -292,11 +292,11 @@ function DialogForm({ id }: { id: string }) {
         <div className="flex flex-col gap-3 text-sm">
           <div className="flex items-center justify-between rounded border p-2">
             <span>TXT _ciel.docs</span>
-            <span className="text-red-600">Missing</span>
+            <span className="text-destructive">Missing</span>
           </div>
           <div className="flex items-center justify-between rounded border p-2">
             <span>CNAME docs</span>
-            <span className="text-emerald-600">Found</span>
+            <span className="text-brand">Found</span>
           </div>
         </div>
       );
@@ -326,7 +326,7 @@ function DialogForm({ id }: { id: string }) {
       return (
         <div className="text-sm flex flex-col gap-2">
           <p>Roll back to deployment <code className="font-mono">a1b2c3d</code> from 2 hours ago?</p>
-          <p className="text-amber-600">Warning: Environment variables have changed since this deployment.</p>
+          <p className="text-warning">Warning: Environment variables have changed since this deployment.</p>
         </div>
       );
     case "pause-project":
@@ -485,9 +485,9 @@ function PanelForm({ id }: { id: string }) {
     case "deployment-diff":
       return (
         <div className="flex flex-col gap-3 text-sm font-mono">
-          <div className="text-emerald-600">+ src/pages/pricing.tsx (4.2 KB)</div>
-          <div className="text-emerald-600">+ public/images/hero.webp (128 KB)</div>
-          <div className="text-red-600">- src/pages/old-pricing.tsx (3.8 KB)</div>
+          <div className="text-brand">+ src/pages/pricing.tsx (4.2 KB)</div>
+          <div className="text-brand">+ public/images/hero.webp (128 KB)</div>
+          <div className="text-destructive">- src/pages/old-pricing.tsx (3.8 KB)</div>
           <div className="text-muted-foreground mt-2">3 routes changed · +128.4 KB asset weight</div>
         </div>
       );

@@ -48,8 +48,10 @@ export function MarketingMobileNav() {
           >
             Login
           </Button>
-          <Button render={<Link href="/auth/signup" onClick={() => setOpen(false)} />}>
-            Start Deploying
+          <Button
+            render={<Link href="/auth/signup" onClick={() => setOpen(false)} />}
+          >
+            Start deploying
           </Button>
         </div>
       </SheetContent>

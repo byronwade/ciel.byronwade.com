@@ -15,3 +15,4 @@ export { WarningBanner } from "./warning-banner";
 export { PageHeader } from "./page-header";
 export { CommandPalette, CommandPaletteTrigger } from "./command-palette";
 export { BudgetPausedBanner } from "./budget-paused-banner";
+export { Sparkline } from "./sparkline";

@@ -16,8 +16,8 @@ export default async function DangerSettingsPage({
   return (
     <div>
       <PageHeader title="Danger Zone" scope={project.name} />
-      <Card className="border-red-500/30">
-        <CardHeader><CardTitle className="text-sm text-red-600">Delete project</CardTitle></CardHeader>
+      <Card className="border-destructive/30">
+        <CardHeader><CardTitle className="text-sm text-destructive">Delete project</CardTitle></CardHeader>
         <CardContent className="flex flex-col gap-3">
           <p className="text-sm text-muted-foreground">Permanently delete {project.name} and all deployments. Export config first.</p>
           <Button variant="destructive" className="w-fit" asChild>

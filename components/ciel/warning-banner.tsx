@@ -11,15 +11,15 @@ interface WarningBannerProps {
 
 export function WarningBanner({ title, message, actionLabel, actionHref }: WarningBannerProps) {
   return (
-    <Alert variant="default" className="border-amber-500/30 bg-amber-500/5">
-      <AlertTriangle className="text-amber-600" />
-      <AlertTitle className="text-amber-800 dark:text-amber-400">{title}</AlertTitle>
-      <AlertDescription className="text-amber-700 dark:text-amber-300">
+    <Alert className="border-warning/40 bg-warning/10 [&>svg]:text-warning">
+      <AlertTriangle />
+      <AlertTitle className="text-foreground">{title}</AlertTitle>
+      <AlertDescription className="text-muted-foreground">
         {message}
         {actionLabel && actionHref && (
           <>
             {" "}
-            <Link href={actionHref} className="underline font-medium">
+            <Link href={actionHref} className="font-medium text-foreground underline underline-offset-3">
               {actionLabel}
             </Link>
           </>

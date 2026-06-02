@@ -5,9 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
-import { Fingerprint, KeyRound } from "lucide-react";
+import { Fingerprint } from "lucide-react";
 import { setMockSession, createMockSession } from "@/lib/auth/mock-session";
 
 export function AuthCard({
@@ -20,9 +19,9 @@ export function AuthCard({
   children: React.ReactNode;
 }) {
   return (
-    <Card>
+    <Card className="shadow-float">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-xl">{title}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
       <CardContent>{children}</CardContent>
@@ -43,12 +42,12 @@ export function LoginForm() {
   return (
     <AuthCard title="Sign in to Ciel" description="Passkey recommended for security and convenience">
       <div className="flex flex-col gap-4">
-        <Button variant="outline" className="w-full" onClick={handlePasskey}>
+        <Button className="w-full" onClick={handlePasskey}>
           <Fingerprint data-icon="inline-start" />
           Continue with passkey
         </Button>
         <div className="relative text-center text-xs text-muted-foreground">
-          <span className="bg-card px-2 relative z-10">or use password</span>
+          <span className="relative z-10 bg-card px-2">or use password</span>
           <div className="absolute inset-x-0 top-1/2 border-t" />
         </div>
         <FieldGroup>
@@ -61,7 +60,9 @@ export function LoginForm() {
             <Input id="password" type="password" autoComplete="current-password" />
           </Field>
         </FieldGroup>
-        <Button className="w-full" onClick={handlePasskey}>Sign in</Button>
+        <Button variant="outline" className="w-full" onClick={handlePasskey}>
+          Sign in
+        </Button>
         <div className="flex flex-col gap-2 text-center text-sm">
           <Link href="/auth/forgot-password" className="text-muted-foreground hover:text-foreground">Forgot password?</Link>
           <Link href="/auth/sso" className="text-muted-foreground hover:text-foreground">Continue with SSO</Link>
@@ -82,10 +83,14 @@ export function SignupForm() {
   return (
     <AuthCard title="Create your Ciel account">
       <div className="flex flex-col gap-4">
-        <Button variant="outline" className="w-full" onClick={handleSignup}>
+        <Button className="w-full" onClick={handleSignup}>
           <Fingerprint data-icon="inline-start" />
           Sign up with passkey
         </Button>
+        <div className="relative text-center text-xs text-muted-foreground">
+          <span className="relative z-10 bg-card px-2">or use email</span>
+          <div className="absolute inset-x-0 top-1/2 border-t" />
+        </div>
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="name">Name</FieldLabel>
@@ -100,11 +105,13 @@ export function SignupForm() {
             <Input id="signup-password" type="password" autoComplete="new-password" />
           </Field>
         </FieldGroup>
-        <Button className="w-full" onClick={handleSignup}>Create account</Button>
-        <p className="text-xs text-muted-foreground text-center">
+        <Button variant="outline" className="w-full" onClick={handleSignup}>
+          Create account
+        </Button>
+        <p className="text-center text-xs text-muted-foreground">
           Preference: <Button variant="link" className="h-auto p-0 text-xs">Cloud</Button> · <Button variant="link" className="h-auto p-0 text-xs">Self-host interest</Button>
         </p>
-        <Link href="/auth/login" className="text-sm text-center text-muted-foreground hover:text-foreground">Already have an account?</Link>
+        <Link href="/auth/login" className="text-center text-sm text-muted-foreground hover:text-foreground">Already have an account?</Link>
       </div>
     </AuthCard>
   );
@@ -119,7 +126,7 @@ export function CodeInput({ onComplete }: { onComplete?: () => void }) {
           <Input
             maxLength={6}
             placeholder="000000"
-            className="text-center text-2xl tracking-[0.5em] font-mono"
+            className="text-center font-mono text-2xl tracking-[0.5em]"
             onPaste={(e) => {
               const pasted = e.clipboardData.getData("text").slice(0, 6);
               if (pasted.length === 6) onComplete?.();
@@ -127,7 +134,7 @@ export function CodeInput({ onComplete }: { onComplete?: () => void }) {
           />
         </Field>
       </FieldGroup>
-      <p className="text-xs text-muted-foreground text-center">Resend available in 58s · <Link href="/auth/mfa/recovery">Try another method</Link></p>
+      <p className="text-center text-xs text-muted-foreground">Resend available in 58s · <Link href="/auth/mfa/recovery">Try another method</Link></p>
     </div>
   );
 }

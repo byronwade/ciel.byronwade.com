@@ -5,11 +5,11 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 import type { TrafficAttribution } from "@/types";
 
 const chartConfig = {
-  human: { label: "Human", color: "hsl(var(--chart-1))" },
-  bot: { label: "Bot", color: "hsl(var(--chart-2))" },
-  verifiedCrawler: { label: "Verified Crawler", color: "hsl(var(--chart-3))" },
-  preview: { label: "Preview", color: "hsl(var(--chart-4))" },
-  blocked: { label: "Blocked", color: "hsl(var(--chart-5))" },
+  human: { label: "Human", color: "var(--chart-1)" },
+  bot: { label: "Bot", color: "var(--chart-2)" },
+  verifiedCrawler: { label: "Verified Crawler", color: "var(--chart-3)" },
+  preview: { label: "Preview", color: "var(--chart-4)" },
+  blocked: { label: "Blocked", color: "var(--chart-5)" },
 };
 
 interface TrafficAttributionChartProps {

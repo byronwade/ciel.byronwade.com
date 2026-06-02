@@ -7,5 +7,6 @@ export { getSecrets, mockSecrets } from "./secrets";
 export { getEvents, mockEvents } from "./events";
 export { getTrafficAttribution, getLineItems, mockTrafficAttribution, mockLineItems } from "./billing";
 export { getTeamMembers, getAuthorizedApps, mockTeamMembers, mockAuthorizedApps } from "./team";
-export { getActiveIncidents, getIncidentHistory, mockIncidents } from "./incidents";
+export { getActiveIncidents, getIncidentHistory, getSystemHealth, mockIncidents, mockSystemHealth } from "./incidents";
+export type { SystemHealth, RegionHealth, HealthMetric, HealthTone } from "./incidents";
 export { getCompetitor, getCompetitors, mockCompetitors } from "./competitors";

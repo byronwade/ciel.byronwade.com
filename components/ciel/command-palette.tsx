@@ -106,7 +106,7 @@ export function CommandPalette({ projectId }: CommandPaletteProps) {
 export function CommandPaletteTrigger() {
   return (
     <button
-      className="hidden sm:flex items-center gap-2 rounded-md border bg-muted/50 px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted"
+      className="hidden sm:flex items-center gap-2 rounded-full border bg-muted/50 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted"
       onClick={() => document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true }))}
     >
       <span>Search...</span>

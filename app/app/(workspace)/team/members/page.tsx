@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { GradientAvatar } from "@/components/ui/gradient-avatar";
+import { StatusDot } from "@/components/ui/status-dot";
 import { getTeamMembers, getAuthorizedApps } from "@/lib/mock";
 
 export default async function TeamMembersPage() {
@@ -32,11 +34,21 @@ export default async function TeamMembersPage() {
               {members.map((m) => (
                 <TableRow key={m.id}>
                   <TableCell>
-                    <div className="text-sm font-medium">{m.name}</div>
-                    <div className="text-xs text-muted-foreground">{m.email}</div>
+                    <div className="flex items-center gap-3">
+                      <GradientAvatar seed={m.email} size="md" />
+                      <div>
+                        <div className="text-sm font-medium">{m.name}</div>
+                        <div className="text-xs text-muted-foreground">{m.email}</div>
+                      </div>
+                    </div>
                   </TableCell>
                   <TableCell><Badge variant="outline" className="capitalize">{m.role}</Badge></TableCell>
-                  <TableCell>{m.mfaEnabled ? "Enabled" : "Not set"}</TableCell>
+                  <TableCell>
+                    <span className="inline-flex items-center gap-1.5 text-sm">
+                      <StatusDot tone={m.mfaEnabled ? "success" : "warning"} />
+                      {m.mfaEnabled ? "Enabled" : "Not set"}
+                    </span>
+                  </TableCell>
                   <TableCell className="text-xs text-muted-foreground">{new Date(m.lastActive).toLocaleDateString()}</TableCell>
                   <TableCell className="text-right">
                     <Button variant="ghost" size="sm" asChild>
