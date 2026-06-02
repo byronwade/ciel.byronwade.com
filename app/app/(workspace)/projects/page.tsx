@@ -1,11 +1,25 @@
 import Link from "next/link";
-import { PageHeader, StatusPill, BudgetMeter } from "@/components/ciel";
+import { PageHeader, StatusPill, BudgetMeter, EmptyState } from "@/components/ciel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { getProjects } from "@/lib/mock";
 
 export default async function ProjectsPage() {
   const projects = await getProjects();
+
+  if (projects.length === 0) {
+    return (
+      <div>
+        <PageHeader title="Projects" />
+        <EmptyState
+          title="No projects yet"
+          description="Create your first project to connect a repository and start deploying."
+          actionLabel="Create Project"
+          actionHref="/app/projects/new/source"
+        />
+      </div>
+    );
+  }
 
   return (
     <div>

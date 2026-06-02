@@ -38,6 +38,11 @@ export default async function DomainDetailPage({
             {domain.nextRetryAt && (
               <span className="text-xs text-muted-foreground">Retry {new Date(domain.nextRetryAt).toLocaleString()}</span>
             )}
+            {(domain.sslStatus === "failing" || domain.sslStatus === "paused") && (
+              <Button variant="outline" size="sm" className="ml-auto" render={<Link href="?dialog=retry-ssl" />}>
+                Retry SSL
+              </Button>
+            )}
           </CardContent>
         </Card>
       </div>

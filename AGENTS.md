@@ -54,7 +54,7 @@ Four shells, do not nest project inside workspace:
 
 ## Product identity
 
-- App name is **Ciel** everywhere (never “LaunchRail”)
+- App name is **Ciel** everywhere in code, copy, and URLs (do not reintroduce the old pre-rename codename)
 - Positioning: predictable cost, understandable security, legible deployment states
 - Preview URLs use `*.ciel.app` in copy and mock data
 

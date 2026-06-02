@@ -37,7 +37,7 @@ export default async function ProjectOverviewPage({
                 ? "Build failing"
                 : "Needs attention"
         }
-        nextAction={{ label: "Deploy", href: `#` }}
+        nextAction={{ label: "Deploy", href: `?dialog=deploy-now` }}
       />
 
       {project.status === "paused" && (

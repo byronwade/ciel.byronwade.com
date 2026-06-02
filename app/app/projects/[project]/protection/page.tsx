@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { LinkButton } from "@/components/ui/link-button";
 import { getProject } from "@/lib/mock";
 import { notFound } from "next/navigation";
 
@@ -38,6 +39,9 @@ export default async function ProtectionPage({
               <Label>Preview password</Label>
               <Input type="password" placeholder="••••••••" />
             </div>
+            <LinkButton href="?dialog=protect-preview" variant="outline" size="sm" className="w-fit">
+              Configure per-preview overrides
+            </LinkButton>
           </CardContent>
         </Card>
         <Card>

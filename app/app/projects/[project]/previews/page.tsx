@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PageHeader, StatusPill } from "@/components/ciel";
+import { PageHeader, StatusPill, EmptyState } from "@/components/ciel";
 import { getPreviews, getProject } from "@/lib/mock";
 import { notFound } from "next/navigation";
 
@@ -17,7 +17,10 @@ export default async function PreviewsPage({
       <PageHeader title="Previews" scope={project.name} />
       <div className="flex flex-col gap-2">
         {previews.length === 0 ? (
-          <p className="text-sm text-muted-foreground">No previews yet. Push to a non-production branch to create one.</p>
+          <EmptyState
+            title="No previews yet"
+            description="Push to a non-production branch to create a preview deployment with its own shareable URL."
+          />
         ) : (
           previews.map((p) => (
             <Link key={p.id} href={`/app/projects/${id}/previews/${p.id}`} className="flex items-center justify-between rounded-md border p-3 hover:bg-muted/50">

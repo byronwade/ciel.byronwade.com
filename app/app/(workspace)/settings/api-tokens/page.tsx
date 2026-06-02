@@ -11,7 +11,7 @@ const tokens = [
 export default function ApiTokensPage() {
   return (
     <div>
-      <PageHeader title="API Tokens" scope="Settings" nextAction={{ label: "Create Token", href: "#" }} />
+      <PageHeader title="API Tokens" scope="Settings" nextAction={{ label: "Create Token", href: "?dialog=create-token" }} />
       <Card>
         <CardContent className="pt-6">
           <Table>

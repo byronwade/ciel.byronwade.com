@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PageHeader, StatusPill } from "@/components/ciel";
+import { PageHeader, StatusPill, EmptyState } from "@/components/ciel";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { getDeployments, getProject } from "@/lib/mock";
 import { notFound } from "next/navigation";
@@ -12,6 +12,20 @@ export default async function DeploymentsPage({
   const { project: id } = await params;
   const [project, deployments] = await Promise.all([getProject(id), getDeployments(id)]);
   if (!project) notFound();
+
+  if (deployments.length === 0) {
+    return (
+      <div>
+        <PageHeader title="Deployments" scope={project.name} />
+        <EmptyState
+          title="No deployments yet"
+          description="Trigger your first deployment by pushing to the production branch or deploying manually."
+          actionLabel="Deploy"
+          actionHref="?dialog=deploy-now"
+        />
+      </div>
+    );
+  }
 
   return (
     <div>

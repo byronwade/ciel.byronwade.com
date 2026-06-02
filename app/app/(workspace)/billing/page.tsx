@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PageHeader } from "@/components/ciel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -22,7 +23,12 @@ export default async function BillingPage() {
         </Card>
         <Card>
           <CardHeader className="pb-2"><CardTitle className="text-sm">Plan</CardTitle></CardHeader>
-          <CardContent><div className="text-2xl font-bold capitalize">{mockWorkspace.plan}</div></CardContent>
+          <CardContent className="flex items-center justify-between gap-2">
+            <div className="text-2xl font-bold capitalize">{mockWorkspace.plan}</div>
+            <Button variant="outline" size="sm" asChild>
+              <Link href="?dialog=upgrade-plan">Upgrade</Link>
+            </Button>
+          </CardContent>
         </Card>
         <Card>
           <CardHeader className="pb-2"><CardTitle className="text-sm">Forecast</CardTitle></CardHeader>

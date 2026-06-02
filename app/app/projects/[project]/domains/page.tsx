@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PageHeader, StatusPill, DnsRecordCard } from "@/components/ciel";
+import { PageHeader, StatusPill, DnsRecordCard, EmptyState } from "@/components/ciel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { getDomains, getProject } from "@/lib/mock";
@@ -22,6 +22,14 @@ export default async function DomainsPage({
         nextAction={{ label: "Add Domain", href: `?dialog=add-domain` }}
       />
       <div className="grid gap-4">
+        {domains.length === 0 && (
+          <EmptyState
+            title="No custom domains"
+            description="Add a domain to serve production traffic on your own URL with automatic SSL."
+            actionLabel="Add Domain"
+            actionHref="?dialog=add-domain"
+          />
+        )}
         {domains.map((domain) => (
           <Card key={domain.id}>
             <CardHeader>

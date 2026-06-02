@@ -44,6 +44,7 @@ const dialogSuccessMessages: Record<string, string> = {
   "upgrade-plan": "Plan upgrade confirmed",
   "export-activity": "Export started — check email when ready",
   "report-incident": "Incident report submitted",
+  "create-token": "API token created — copy it now, it won't be shown again",
 };
 
 function overlaySuccessMessage(id: string) {
@@ -444,6 +445,34 @@ function DialogForm({ id }: { id: string }) {
           {["GitHub", "GitLab", "Bitbucket"].map((p) => (
             <div key={p} className="rounded-md border p-4 text-center text-sm font-medium hover:bg-muted/50 cursor-pointer">{p}</div>
           ))}
+        </div>
+      );
+    case "create-token":
+      return (
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2"><Label>Token name</Label><Input placeholder="CI deploy" /></div>
+          <div className="flex flex-col gap-2">
+            <Label>Scope</Label>
+            <Select defaultValue="deploy">
+              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="deploy">Deploy only</SelectItem>
+                <SelectItem value="read">Read only</SelectItem>
+                <SelectItem value="full">Full access</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex flex-col gap-2">
+            <Label>Expires</Label>
+            <Select defaultValue="90d">
+              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="30d">30 days</SelectItem>
+                <SelectItem value="90d">90 days</SelectItem>
+                <SelectItem value="never">Never</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       );
     default:

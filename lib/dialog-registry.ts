@@ -38,6 +38,7 @@ export const dialogRegistry: Record<string, DialogDefinition> = {
   "enable-passkey": { id: "enable-passkey", title: "Enable Passkey", type: "modal" },
   "regenerate-recovery-codes": { id: "regenerate-recovery-codes", title: "Regenerate Recovery Codes", type: "modal", reauthRequired: true },
   "sign-out-all-sessions": { id: "sign-out-all-sessions", title: "Sign Out All Sessions", type: "modal", reauthRequired: true },
+  "create-token": { id: "create-token", title: "Create API Token", type: "modal" },
 };
 
 export const panelRegistry: Record<string, DialogDefinition> = {

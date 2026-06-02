@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PageHeader, PermissionScopeChip } from "@/components/ciel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +25,7 @@ export default async function TeamMembersPage() {
                 <TableHead>Role</TableHead>
                 <TableHead>MFA</TableHead>
                 <TableHead>Last active</TableHead>
+                <TableHead />
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -36,6 +38,11 @@ export default async function TeamMembersPage() {
                   <TableCell><Badge variant="outline" className="capitalize">{m.role}</Badge></TableCell>
                   <TableCell>{m.mfaEnabled ? "Enabled" : "Not set"}</TableCell>
                   <TableCell className="text-xs text-muted-foreground">{new Date(m.lastActive).toLocaleDateString()}</TableCell>
+                  <TableCell className="text-right">
+                    <Button variant="ghost" size="sm" asChild>
+                      <Link href="?dialog=change-role">Change role</Link>
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -51,7 +58,7 @@ export default async function TeamMembersPage() {
                 <div className="font-medium text-sm">{app.name}</div>
                 <PermissionScopeChip scopes={app.scopes} />
               </div>
-              <Button variant="outline" size="sm">Revoke</Button>
+              <Button variant="outline" size="sm" asChild><Link href="?dialog=revoke-app">Revoke</Link></Button>
             </div>
           ))}
         </CardContent>

@@ -6,7 +6,7 @@ import { mockSecrets } from "@/lib/mock";
 import { useDialog } from "@/hooks/use-dialog";
 
 export default function EnvironmentPage() {
-  const { openDialog } = useDialog();
+  const { openDialog, openPanel } = useDialog();
 
   return (
     <div>
@@ -29,9 +29,14 @@ export default function EnvironmentPage() {
           />
         ))}
       </div>
-      <Button variant="outline" className="mt-4" onClick={() => openDialog("import-env")}>
-        Import variables
-      </Button>
+      <div className="mt-4 flex gap-2">
+        <Button variant="outline" onClick={() => openDialog("import-env")}>
+          Import variables
+        </Button>
+        <Button variant="ghost" onClick={() => openPanel("secret-access-history")}>
+          View access history
+        </Button>
+      </div>
     </div>
   );
 }
